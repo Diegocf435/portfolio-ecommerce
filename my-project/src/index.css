@@ -4,7 +4,8 @@
   --color-secondary--focus: #333;
   --color-secondary: #ccc;
   --color-secondary-focus: #aaa;
-
+  --button-color: #e94560;
+  -button-color-hover: #dd7284;
   --link-color: #3483fa;
   --offer-color: #00a650;
   --background-1: #fff159;
@@ -28,7 +29,7 @@ h5,
 h5,
 p,
 span {
-  color: #fff;
+  color: var(--color-primary);
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

@@ -1,0 +1,122 @@
+/*NAVBAR TOP */
+.navbar__top {
+  width: 100%;
+  height: 2rem;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-color: var(--background-1);
+}
+.navbar__top__container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar__top__left__container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+.navbar__top__left__item {
+  display: flex;
+  align-items: center;
+}
+.navbar__top__right__item {
+  display: flex;
+  align-items: center;
+}
+.navbar__top__right__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.navbar__top__right__left__item {
+  display: flex;
+  align-items: center;
+}
+.navbar__top__right__right_item {
+  display: flex;
+  align-items: center;
+}
+/* NAVBAR CENTER */
+.navbar__center {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  margin-top: 0.5rem;
+}
+.navbar__center__container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar__center__logo__container span {
+  color: var(--button-color);
+  font-size: 2.5rem;
+  font-weight: 600;
+  font-family: "Times New Roman", Times, serifs;
+  font-style: oblique;
+}
+
+.navbar__center__right__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.user-icon,
+.cart-icon {
+  background-color: rgb(197, 197, 197, 0.5);
+  border-radius: 50%;
+  font-size: 2rem;
+  padding: 0.4rem;
+}
+.navbar__center__search__container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.012), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.navbar__center__search__container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+
+.navbar__center__search__container button {
+  border: none;
+  outline: none;
+  background-color: #fff;
+
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.012), 0 1px 2px rgba(0, 0, 0, 0.14);
+  transition: all 0.3s ease;
+}
+
+.navbar__center__search__container button:hover {
+  background-color: #f6f6f6;
+  color: var(--button-color);
+}
+
+.navbar__center__search__container .AiOutlineSearch {
+  color: #ccc;
+  transition: 0.3s ease;
+}
+.navbar__center__search__container:hover .AiOutlineSearch {
+  color: var(--button-color);
+}
+
+.navbar__center__search__container input:focus {
+  border: none;
+}
+/*NAVBAR BOTTOM */
