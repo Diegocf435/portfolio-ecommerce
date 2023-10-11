@@ -1,0 +1,85 @@
+.flashDeals {
+  margin: 3rem 0rem;
+}
+
+.flashDeals__title__container {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: 80%;
+  margin-bottom: 1rem;
+}
+.flashDeals__title__container svg {
+  color: var(--button-color);
+  font-size: 1.2rem;
+}
+.flashDeals__title__container h2 {
+  font-weight: 700;
+}
+
+.flash__image__container {
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flash__image__container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flashDeals swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.flashDeals swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  margin: 0 2rem;
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin: 2rem;
+}
+.flash__slide .discount {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--button-color);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.4rem;
+}
+.flash__description__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem;
+}
+.flash__slide {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.flash__name {
+  color: var(--color-secondary-focus);
+  margin: 0.5rem;
+}
+.flash__price {
+  color: var(--button-color);
+}
+.flashDeals swiper-slide:hover {
+  transform: scale(1.05);
+  box-shadow: var(--sombra-fuerte);
+}
