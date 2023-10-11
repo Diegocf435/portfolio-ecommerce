@@ -1,0 +1,86 @@
+.hero {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  place-content: center;
+}
+.hero__container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  box-shadow: var(--sombra);
+  border-radius: 10px;
+  overflow: hidden;
+
+  background-color: #fff;
+}
+.hero__left__container {
+  border-right: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: var(--sombra);
+}
+.hero__list__item svg {
+  font-size: 1.5rem;
+  color: grey;
+}
+.hero__list__item {
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: 500;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.hero__slide {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+.hero__description__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 600px;
+}
+.hero__description__container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero__container p {
+  color: var(--color-secondary-focus);
+  margin-bottom: 2rem;
+}
+
+.hero__image__container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero__description__container span {
+  background-color: var(--button-color);
+  color: #fff;
+  padding: 0.4rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.hero__description__container span:hover {
+  background-color: var(--button-color-hover);
+}
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,6 +1,11 @@
+import Hero from "../Hero/Hero";
 import "./Home.css";
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 };
 
 export default Home;
