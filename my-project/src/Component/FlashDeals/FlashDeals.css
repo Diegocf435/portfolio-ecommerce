@@ -1,5 +1,11 @@
 .flashDeals {
   margin: 3rem 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flashDeals__container {
+  width: 81%;
 }
 
 .flashDeals__title__container {
@@ -18,11 +24,12 @@
 }
 
 .flash__image__container {
-  width: 15rem;
-  height: 15rem;
+  width: 12rem;
+  height: 12rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1rem;
 }
 .flash__image__container img {
   width: 100%;
@@ -74,7 +81,6 @@
 }
 .flash__name {
   color: var(--color-secondary-focus);
-  margin: 0.5rem;
 }
 .flash__price {
   color: var(--button-color);
