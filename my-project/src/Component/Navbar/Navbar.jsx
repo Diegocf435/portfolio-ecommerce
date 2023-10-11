@@ -6,7 +6,62 @@ import { FaHandHoldingUsd } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
+import { BsBoxes } from "react-icons/bs";
 const Navbar = () => {
+  const categories = [
+    {
+      id: 0,
+      name: "Categories",
+      path: "/",
+    },
+    {
+      id: 1,
+      name: "Men",
+      path: "/men",
+    },
+    {
+      id: 2,
+      name: "Women",
+      path: "/women",
+    },
+    {
+      id: 3,
+      name: "Kids",
+      path: "/kids",
+    },
+  ];
+  const navItems = [
+    {
+      id: 1,
+      name: "Home",
+      path: "/",
+    },
+    {
+      id: 2,
+      name: "Products",
+      path: "/products",
+    },
+    {
+      id: 3,
+      name: "User Account",
+      path: "/user-account",
+    },
+    {
+      id: 4,
+      name: "Vendor Account",
+      path: "/vendor-account",
+    },
+    {
+      id: 5,
+      name: "Track My Order",
+      path: "/track-my-order",
+    },
+    {
+      id: 6,
+      name: "Contact",
+      path: "/contact",
+    },
+  ];
   const NavbarTop = () => {
     return (
       <div className="navbar__top">
@@ -64,7 +119,29 @@ const Navbar = () => {
     );
   };
   const NavbarBottom = () => {
-    return <div>bottom</div>;
+    return (
+      <div className="navbar__bottom">
+        <div className="navbar__bottom__container">
+          <div className="navbar__bottom__left__container">
+            <BsBoxes />
+            <select name="" id="">
+              {categories.map((item) => (
+                <option key={item.id}>{item.name}</option>
+              ))}
+            </select>
+          </div>
+          <div className="navbar__bottom__right__container">
+            <ul className="navbar__list">
+              {navItems.map((item) => (
+                <li className="navbar__item" key={item.id}>
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
   };
   return (
     <div className="navbar">
