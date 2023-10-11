@@ -64,7 +64,7 @@
   padding: 0.4rem 1.5rem;
   border-radius: 5px;
   font-size: 1rem;
-  transition: 0.3s ease;
+  transition: 0.4s ease;
   cursor: pointer;
 }
 .hero__description__container span:hover {
