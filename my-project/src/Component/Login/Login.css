@@ -1,0 +1,97 @@
+.login {
+  width: 100%;
+  height: calc(100vh - 10rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.login__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.login__container form {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  border-radius: 5px;
+  box-shadow: var(--sombra);
+}
+.login__container form label {
+  margin-top: 1rem;
+  color: var(--color-secondary-focus);
+  font-weight: 100;
+  margin-bottom: 0.2rem;
+}
+.login__continue__button {
+  border: none;
+  color: #fff;
+  background-color: var(--link-color);
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: var(--link-color);
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.login__create__account__button {
+  color: var(--link-color);
+  text-align: center;
+  cursor: pointer;
+}
+.login__input {
+  outline-color: var(--link-color-2);
+  border-color: var(--link-color);
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: 2.5px solid var(--link-color-2);
+  box-shadow: var(--sombra);
+  margin-bottom: 1rem;
+}
+.login__container__report_problem {
+  background-color: #fff;
+  padding: 2.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: var(--sombra);
+}
+.report__problem__title {
+  margin-bottom: 1.5rem;
+}
+.login__container__report_problem span {
+  color: var(--color-secondary-focus);
+  cursor: pointer;
+}
+
+.login__icon {
+  width: 20px;
+}
+.login__divider {
+  background-color: rgb(135, 135, 135, 0.3);
+  height: 1px;
+  width: 100%;
+  margin: 1rem 0;
+}
+.login__report__a__problem__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.login__report__a__problema__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.login__bottom__container {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.7rem;
+  margin-top: 0.4rem;
+}
+.login__privacity__link,
+.login__terms__link {
+  color: var(--link-color);
+}
