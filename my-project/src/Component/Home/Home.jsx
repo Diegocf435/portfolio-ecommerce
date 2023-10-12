@@ -1,3 +1,4 @@
+import BigDiscounts from "../BigDiscounts/BigDiscounts";
 import FlashDeals from "../FlashDeals/FlashDeals";
 import Hero from "../Hero/Hero";
 import NewArrivals from "../NewArrivals/NewArrivals";
@@ -10,6 +11,7 @@ const Home = () => {
       <FlashDeals />
       <TopCategories />
       <NewArrivals />
+      <BigDiscounts />
     </div>
   );
 };
