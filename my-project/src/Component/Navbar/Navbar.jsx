@@ -7,6 +7,7 @@ import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsBoxes } from "react-icons/bs";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const categories = [
     {
@@ -98,7 +99,9 @@ const Navbar = () => {
       <div className="navbar__center">
         <div className="navbar__center__container">
           <div className="navbar__center__logo__container">
-            <span>YouMercado</span>
+            <Link to="/">
+              <span> YouMercado</span>
+            </Link>
           </div>
           <div className="navbar__center__search__container">
             <AiOutlineSearch className="AiOutlineSearch" />
@@ -137,6 +140,9 @@ const Navbar = () => {
                   {item.name}
                 </li>
               ))}
+              <li className="navbar__item">
+                <Link to="/login">Login</Link>
+              </li>
             </ul>
           </div>
         </div>

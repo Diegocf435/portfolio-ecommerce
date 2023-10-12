@@ -9,9 +9,7 @@ const Login = () => {
       email: "",
     },
   ]);
-  const handleChange = (e) => {
-    console.log(e.target.name, e.target.value);
-  };
+
   return (
     <div className="login">
       <div className="login__container">
@@ -21,13 +19,7 @@ const Login = () => {
             <br /> e-mail o usuario
           </h2>
           <label htmlFor="phone">Teléfono, e-mail o usuario</label>
-          <input
-            className="login__input"
-            type="text"
-            name="email"
-            value={userData.email}
-            onChange={handleChange}
-          />
+
           <button className="login__continue__button">Continuar</button>
           <span className="login__create__account__button">Crear cuenta</span>
         </form>
