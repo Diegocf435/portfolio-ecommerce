@@ -1,0 +1,34 @@
+.mobilePhones {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobilePhones__container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 20% 78%;
+  gap: 2%;
+}
+.mobilePhones__container__left {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: var(--sombra);
+  padding: 1rem;
+}
+.mobilePhones__container__left__title {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+}
+.mobilePhones__divider {
+  width: 2px;
+  height: 20px;
+  border-radius: 10px;
+  background: gray;
+}
+.mobilePhones__brand__text {
+}
+.mobilePhones__container__right {
+  border: 1px solid green;
+}

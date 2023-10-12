@@ -40,8 +40,7 @@
   color: var(--button-color);
   transition: 0.3s ease;
 }
-.bigDiscounts__title__right__container.bigDiscounts__title__right__container:hover
-  svg {
+.bigDiscounts__title__right__container.bigDiscounts__title__right__container:hover {
   transform: translateX(5px);
 }
 .bigDiscounts swiper-container {
@@ -52,7 +51,7 @@
 }
 .bigDiscounts swiper-slide {
   background-color: #fff;
-  margin: 0 1rem;
+  margin: 1rem;
 
   border-radius: 10px;
   box-shadow: var(--sombra);
