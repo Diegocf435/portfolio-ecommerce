@@ -8,7 +8,7 @@ import { register } from "swiper/element/bundle";
 import { useEffect, useRef } from "react";
 import { BsFillLightningChargeFill } from "react-icons/bs";
 import StarRating from "../StarRating/StarRating";
-import { FiStar } from "react-icons/fi";
+import { HiPlus } from "react-icons/hi";
 const FlashDeals = () => {
   const flashDealsArray = [
     {
@@ -95,7 +95,10 @@ const FlashDeals = () => {
                     {/* stars */}
                     <StarRating rating={item.stars} />
                   </div>
-                  <p className="flash__price">{item.price}</p>
+                  <div className="flash__price__container">
+                    <p className="flash__price">{item.price}</p>
+                    <HiPlus />
+                  </div>
                 </div>
                 <span className="discount">{item.discount}</span>
               </div>
