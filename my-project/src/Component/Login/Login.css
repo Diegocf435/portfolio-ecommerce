@@ -19,6 +19,7 @@
   padding: 2.5rem;
   border-radius: 5px;
   box-shadow: var(--sombra);
+  position: relative;
 }
 .login__container form label {
   margin-top: 1rem;
@@ -94,4 +95,18 @@
 .login__privacity__link,
 .login__terms__link {
   color: var(--link-color);
+}
+.login__return__button {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: var(--link-color);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.login__return__button:hover {
+  color: var(--link-color-2);
+}
+.login__error__message {
+  color: rgb(200, 43, 43);
 }

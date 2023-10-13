@@ -119,20 +119,7 @@ const Hero = () => {
   ];
 
   // register Swiper custom elements
-  register();
-  const swiperElRef = useRef(null);
 
-  useEffect(() => {
-    // listen for Swiper events using addEventListener
-    swiperElRef.current.addEventListener("progress", (e) => {
-      const [swiper, progress] = e.detail;
-      console.log(progress);
-    });
-
-    swiperElRef.current.addEventListener("slidechange", (e) => {
-      console.log("slide changed");
-    });
-  }, []);
   return (
     <div className="hero">
       <div className="hero__container">
@@ -148,12 +135,14 @@ const Hero = () => {
         </div>
         <div className="hero__right__container">
           <swiper-container
-            ref={swiperElRef}
-            slides-per-view="1"
-            navigation="true"
+            className="mySwiper"
             pagination="true"
-            speed="500"
-            loop="true"
+            pagination-clickable="true"
+            navigation="true"
+            space-between="30"
+            centered-slides="true"
+            autoplay-delay="2500"
+            autoplay-disable-on-interaction="false"
           >
             {offerSlides.map((item) => (
               <swiper-slide key={item.id}>

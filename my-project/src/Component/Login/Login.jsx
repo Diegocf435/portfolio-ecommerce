@@ -4,22 +4,86 @@ import phoneIcon from "../../../images/login/phone.png";
 import { IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
 const Login = () => {
-  const [userData, setUserData] = useState([
-    {
-      email: "",
-    },
-  ]);
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
+  const [currentStep, setCurrentStep] = useState(1);
+  const [error, setError] = useState(false);
+  const handleChange = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+    if (e.target.value.trim()) {
+      setError(false);
+    } else {
+      setError(true);
+    }
+  };
+
+  const isFormCompleted = !userData.email.trim();
+  console.log(isFormCompleted);
+  const handleStep1Change = () => {
+    const state = isFormCompleted ? 1 : 2;
+    setCurrentStep(state);
+  };
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+    if (!userData.email.trim()) {
+      setError(true);
+    }
+    console.log(`el valor de user es : ${userData.email}`);
+  };
+
   return (
     <div className="login">
       <div className="login__container">
-        <form action="">
+        <form onSubmit={handleEmailSubmit}>
           <h2>
             ¡Hola! Ingresa tu teléfono,
             <br /> e-mail o usuario
           </h2>
-          <label htmlFor="phone">Teléfono, e-mail o usuario</label>
-          <input className="login__input" type="text" />
-          <button className="login__continue__button">Continuar</button>
+
+          {currentStep === 1 && (
+            <>
+              {error && <p className="login__error__message">Campo Vacio</p>}
+              <label htmlFor="phone">Teléfono, e-mail o usuario</label>
+              <input
+                className="login__input"
+                type="text"
+                name="email"
+                value={userData.email}
+                onChange={handleChange}
+              />
+              <button
+                type="submit"
+                className="login__continue__button"
+                onClick={handleStep1Change}
+              >
+                Continuar
+              </button>
+            </>
+          )}
+          {currentStep === 2 && (
+            <>
+              <label htmlFor="password">Password</label>
+              <input
+                className="login__input"
+                type="password"
+                name="password"
+                value={userData.password}
+                onChange={handleChange}
+              />
+              <button type="submit" className="login__continue__button">
+                Continuar
+              </button>
+              <span
+                className="login__return__button"
+                type="submit"
+                onClick={() => setCurrentStep(1)}
+              >
+                volver
+              </span>
+            </>
+          )}
           <span className="login__create__account__button">Crear cuenta</span>
         </form>
         <div className="login__container__report_problem">

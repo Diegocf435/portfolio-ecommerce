@@ -137,7 +137,7 @@ const Navbar = () => {
             <ul className="navbar__list">
               {navItems.map((item) => (
                 <li className="navbar__item" key={item.id}>
-                  {item.name}
+                  <Link to={item.path}>{item.name}</Link>
                 </li>
               ))}
               <li className="navbar__item">

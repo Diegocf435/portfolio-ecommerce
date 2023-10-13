@@ -163,10 +163,11 @@
   font-weight: 600;
   gap: 1rem;
 }
-.navbar__item {
+.navbar__item,
+a {
   transition: 0.3s ease;
   cursor: pointer;
 }
-.navbar__list .navbar__item:hover {
+.navbar__list .navbar__item:hover a {
   color: var(--button-color);
 }
