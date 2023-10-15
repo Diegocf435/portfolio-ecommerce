@@ -7,6 +7,7 @@ import image4 from "../../../images/products__carousel/image4.webp";
 import image5 from "../../../images/products__carousel/image5.webp";
 import image6 from "../../../images/products__carousel/image6.webp";
 import { UseFetch, Options } from "../../CustomHooks/UseFetch";
+import ProductItem from "../ProductItem/ProductItem";
 
 const Products = () => {
   const offerSlides = [
@@ -38,17 +39,22 @@ const Products = () => {
   const productsUrl =
     "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list";
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   async function fetchingProducts() {
     try {
+      setLoading(true);
       const result = await UseFetch(productsUrl, Options);
-      setProducts(result);
+      setProducts(result.results);
+      setLoading(false);
     } catch (e) {
-      console.log(e);
+      setError(e);
+      setLoading(false);
     }
   }
   console.log(products);
   useEffect(() => {
-    fetchingProducts();
+    // fetchingProducts();
   }, []);
   return (
     <div className="products">
@@ -72,13 +78,20 @@ const Products = () => {
           ))}
         </swiper-container>
       </div>
-
-      <div className="products__container">
-        <div className="products__left__container">left</div>
-        <div className="products__right__container">
-          <div className="products__wrapper"></div>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className="products__container">
+          <div className="products__left__container">left</div>
+          <div className="products__right__container">
+            <div className="products__wrapper">
+              {products?.map((item) => (
+                <ProductItem key={item.pk} item={item} />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
