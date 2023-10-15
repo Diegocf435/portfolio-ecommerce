@@ -38,6 +38,7 @@ const Products = () => {
   const productsUrl =
     "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list";
   const [products, setProducts] = useState([]);
+  const [mostrar, setMostrar] = useState(false);
   async function fetchingProducts() {
     try {
       const result = await UseFetch(productsUrl, Options);
@@ -50,8 +51,17 @@ const Products = () => {
   useEffect(() => {
     fetchingProducts();
   }, []);
+  useEffect(() => {
+    // Simulamos un retraso de medio segundo antes de mostrar el componente
+    const timer = setTimeout(() => {
+      setMostrar(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
-    <div className="products">
+    <div className={`products ${mostrar ? 'visible' : ''}`}>
       <div className="products__offers__carousel">
         <swiper-container
           className="mySwiper"

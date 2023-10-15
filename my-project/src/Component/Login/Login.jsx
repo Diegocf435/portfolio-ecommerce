@@ -2,7 +2,7 @@ import "./Login.css";
 import userIcon from "../../../images/login/user.png";
 import phoneIcon from "../../../images/login/phone.png";
 import { IoIosArrowForward } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Login = () => {
   const [userData, setUserData] = useState({
     email: "",
@@ -10,6 +10,7 @@ const Login = () => {
   });
   const [currentStep, setCurrentStep] = useState(1);
   const [error, setError] = useState(false);
+  const [mostrar, setMostrar] = useState(false);
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
     if (e.target.value.trim()) {
@@ -32,9 +33,17 @@ const Login = () => {
     }
     console.log(`el valor de user es : ${userData.email}`);
   };
+  useEffect(() => {
+    // Simulamos un retraso de medio segundo antes de mostrar el componente
+    const timer = setTimeout(() => {
+      setMostrar(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div className="login">
+    <div className={`login ${mostrar ? 'visible' : ''}`}>
       <div className="login__container">
         <form onSubmit={handleEmailSubmit}>
           <h2>
