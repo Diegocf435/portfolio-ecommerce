@@ -3,9 +3,10 @@
   height: 100%;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  border: 1px solid red;
 }
 .products.visible {
-  opacity:1;
+  opacity: 1;
 }
 .products__offers__carousel {
   margin-bottom: 5rem;
@@ -13,6 +14,13 @@
 .products swiper-container {
   width: 100%;
   height: 100%;
+}
+.products__container swiper-slide {
+  width: 100%;
+}
+.products img {
+  width: 100%;
+  object-fit: cover;
 }
 .products__container {
   width: 80%;

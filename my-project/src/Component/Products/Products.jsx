@@ -59,9 +59,9 @@ const Products = () => {
 
     return () => clearTimeout(timer);
   }, []);
-  
+
   return (
-    <div className={`products ${mostrar ? 'visible' : ''}`}>
+    <div className={`products ${mostrar ? "visible" : ""}`}>
       <div className="products__offers__carousel">
         <swiper-container
           className="mySwiper"
