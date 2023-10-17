@@ -37,12 +37,12 @@ const Login = () => {
   useEffect(() => {
     // Simulamos un retraso de medio segundo antes de mostrar el componente
     const timer = setTimeout(() => {
-      setMostrar(true);
+      setMostrar(false);
     }, 100);
 
     return () => clearTimeout(timer);
   }, []);
-
+  
   return (
     <div className={`login ${mostrar ? "visible" : ""}`}>
       <div className="login__container">
