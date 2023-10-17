@@ -67,6 +67,7 @@ const FlashDeals = () => {
       console.log("slide changed");
     });
   }, []);
+
   return (
     <div className="flashDeals">
       <div className="flashDeals__container">

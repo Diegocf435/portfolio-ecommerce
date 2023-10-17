@@ -8,7 +8,11 @@ import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsBoxes } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useState } from "react";
+import { RxCross1 } from "react-icons/rx";
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const categories = [
     {
       id: 0,
@@ -63,31 +67,35 @@ const Navbar = () => {
       path: "/contact",
     },
   ];
+  const handleNavbarIsOpen = () => {
+    setIsOpen(!isOpen);
+  };
   const NavbarTop = () => {
     return (
       <div className="navbar__top">
         <div className="navbar__top__container">
           <div className="navbar__top__left__container">
             <div className="navbar__top__left__item">
-              <BsPhone />
-              <span>+88012 3457 7894</span>
+              <BsPhone className="navbar__top__icon" />
+              <span className="navbar__top__span">+88012 3457 7894</span>
             </div>
             <div className="navbar__top__right__item">
-              <AiOutlineMail />
-              <span>Docortesf435@gmail.com</span>
+              <AiOutlineMail className="navbar__top__icon" />
+              <span className="navbar__top__span">Docortesf435@gmail.com</span>
             </div>
           </div>
           <div className="navbar__top__right__container">
-            <span>Theme FAQS</span>
-            <span> Need Helps</span>
+            <span className="navbar__top__span">Theme FAQS</span>
+            <span className="navbar__top__span"> Need Helps</span>
             <div className="navbar__top__right__left__item">
-              <LiaFlagUsaSolid />
-              <span>EN</span>
+              <LiaFlagUsaSolid className="navbar__top__icon" />
+              <span className="navbar__top__span">EN</span>
+              <div></div>
             </div>
 
-            <div className="navbar__top__right__right__item">
-              <FaHandHoldingUsd />
-              <span>USD</span>
+            <div className="navbar__top__right__item">
+              <FaHandHoldingUsd className="navbar__top__icon" />
+              <span className="navbar__top__span">USD</span>
             </div>
           </div>
         </div>
@@ -134,6 +142,10 @@ const Navbar = () => {
             </select>
           </div>
           <div className="navbar__bottom__right__container">
+            <GiHamburgerMenu
+              className="navbar__hamburger__icon"
+              onClick={handleNavbarIsOpen}
+            />
             <ul className="navbar__list">
               {navItems.map((item) => (
                 <li className="navbar__item" key={item.id}>
@@ -144,11 +156,32 @@ const Navbar = () => {
                 <Link to="/login">Login</Link>
               </li>
             </ul>
+
+            <ul className={`mobile__navbar__list ${isOpen ? "open" : ""}`}>
+              <RxCross1
+                className="mobile__cross__icon"
+                onClick={handleNavbarIsOpen}
+              />
+              <div className="navbar__center__logo__container">
+                <Link to="/">
+                  <span> YouMercado</span>
+                </Link>
+              </div>
+              {navItems.map((item) => (
+                <li id="mobile__navbar__item" key={item.id}>
+                  <Link to={item.path}>{item.name}</Link>
+                </li>
+              ))}
+              <li className="mobile__navbar__item">
+                <Link to="/login">Login</Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     );
   };
+  console.log(isOpen);
   return (
     <div className="navbar">
       <NavbarTop />

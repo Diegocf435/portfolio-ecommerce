@@ -3,6 +3,7 @@ import userIcon from "../../../images/login/user.png";
 import phoneIcon from "../../../images/login/phone.png";
 import { IoIosArrowForward } from "react-icons/io";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const Login = () => {
   const [userData, setUserData] = useState({
     email: "",
@@ -43,7 +44,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div className={`login ${mostrar ? 'visible' : ''}`}>
+    <div className={`login ${mostrar ? "visible" : ""}`}>
       <div className="login__container">
         <form onSubmit={handleEmailSubmit}>
           <h2>
@@ -93,7 +94,11 @@ const Login = () => {
               </span>
             </>
           )}
-          <span className="login__create__account__button">Crear cuenta</span>
+          <span className="login__create__account__button">
+            <Link to="/register" className="create__account__link">
+              Crear cuenta
+            </Link>
+          </span>
         </form>
         <div className="login__container__report_problem">
           <h4 className="report__problem__title">Reportar un problema</h4>

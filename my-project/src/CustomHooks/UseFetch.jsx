@@ -1,10 +1,7 @@
 export const UseFetch = async (url, option) => {
   try {
     const result = await fetch(url, option);
-    if (!result.ok) {
-      throw new Error("Error al hacer fetch");
-    }
-    const json = result.json();
+    const json = await result.json();
     return json;
   } catch (e) {
     console.log(e);

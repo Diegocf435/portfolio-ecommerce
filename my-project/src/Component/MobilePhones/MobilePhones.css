@@ -32,3 +32,12 @@
 .mobilePhones__container__right {
   border: 1px solid green;
 }
+
+@media screen and (max-width: 900px) {
+  .mobilePhones__image__container {
+    width: 20px;
+  }
+  .mobilePhones__image__container img {
+    width: 100%;
+  }
+}

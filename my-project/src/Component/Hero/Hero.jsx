@@ -76,8 +76,8 @@ const Hero = () => {
     },
     {
       id: 10,
-      name: "Groceries",
       path: "/Groceries",
+      name: "Groceries",
       icon: <IoFastFoodOutline />,
     },
     {
@@ -89,6 +89,7 @@ const Hero = () => {
   ];
   const offerSlides = [
     {
+      id: 1,
       title: "50% Off For Your First Shopping",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Sed diam nonumy eirmod tempor incididunt ut labore et dolore magna aliquy pariatur et",
@@ -96,6 +97,7 @@ const Hero = () => {
       image: slide1,
     },
     {
+      id: 2,
       title: "50% Off For Your First Shopping",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -103,6 +105,7 @@ const Hero = () => {
       image: slide2,
     },
     {
+      id: 3,
       title: "50% Off For Your First Shopping",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
@@ -110,6 +113,7 @@ const Hero = () => {
       image: slide3,
     },
     {
+      id: 4,
       title: "50% Off For Your First Shopping",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",

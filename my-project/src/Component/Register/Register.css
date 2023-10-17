@@ -1,4 +1,4 @@
-.login {
+.register {
   width: 100%;
   height: calc(100vh - 10rem);
   display: flex;
@@ -8,16 +8,16 @@
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-.login.visible {
+.register.visible {
   opacity: 1;
 }
-.login__container {
+.register__container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.login__container form {
+.register__container form {
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -26,40 +26,44 @@
   box-shadow: var(--sombra);
   position: relative;
 }
-.login__container form label {
+.register__container form label {
   margin-top: 1rem;
   color: var(--color-secondary-focus);
   font-weight: 100;
   margin-bottom: 0.2rem;
 }
-.login__continue__button {
+.register__continue__button {
   border: none;
   color: #fff;
   background-color: var(--link-color);
   border-radius: 5px;
   padding: 0.5rem;
   box-shadow: var(--sombra);
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
   cursor: pointer;
 }
-.login__create__account__button {
+.register__login__link__button {
   text-align: center;
   cursor: pointer;
+}
+.register__login__link__button a {
+  color: var(--link-color);
 }
 .create__account__link {
   color: var(--link-color);
 }
 
-.login__input {
+.register__input {
   outline-color: var(--link-color-2);
   border-color: var(--link-color);
   border-radius: 5px;
   padding: 0.5rem;
   border: 2.5px solid var(--link-color-2);
   box-shadow: var(--sombra);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
-.login__container__report_problem {
+.register__container__report_problem {
   background-color: #fff;
   padding: 2.5rem;
   margin-top: 1rem;
@@ -70,41 +74,41 @@
 .report__problem__title {
   margin-bottom: 1.5rem;
 }
-.login__container__report_problem span {
+.register__container__report_problem span {
   color: var(--color-secondary-focus);
   cursor: pointer;
 }
 
-.login__icon {
+.register__icon {
   width: 20px;
 }
-.login__divider {
+.register__divider {
   background-color: rgb(135, 135, 135, 0.3);
   height: 1px;
   width: 100%;
   margin: 1rem 0;
 }
-.login__report__a__problem__top {
+.register__report__a__problem__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.login__report__a__problema__bottom {
+.register__report__a__problema__bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.login__bottom__container {
+.register__bottom__container {
   display: flex;
   gap: 1rem;
   font-size: 0.7rem;
   margin-top: 0.4rem;
 }
-.login__privacity__link,
-.login__terms__link {
+.register__privacity__link,
+.register__terms__link {
   color: var(--link-color);
 }
-.login__return__button {
+.register__return__button {
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
@@ -112,9 +116,20 @@
   cursor: pointer;
   transition: 0.3s ease;
 }
-.login__return__button:hover {
+.register__return__button:hover {
   color: var(--link-color-2);
 }
-.login__error__message {
-  color: rgb(200, 43, 43);
+.register__error__message {
+  color: #fff;
+  background-color: rgb(200, 43, 43, 0.8);
+  border-radius: 10px;
+  padding: 0.2rem;
+  text-align: center;
+}
+.register__success__message {
+  color: #fff;
+  background-color: var(--offer-color);
+  padding: 0.2rem;
+  text-align: center;
+  margin: 0.5rem 0;
 }
