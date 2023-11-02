@@ -7,6 +7,7 @@ import image4 from "../../../images/products__carousel/image4.webp";
 import image5 from "../../../images/products__carousel/image5.webp";
 import image6 from "../../../images/products__carousel/image6.webp";
 import { UseFetch, Options } from "../../CustomHooks/UseFetch";
+import ProductItem from "../ProductItem/ProductItem";
 
 const Products = () => {
   const offerSlides = [
@@ -35,19 +36,39 @@ const Products = () => {
       image: image6,
     },
   ];
-  const productsUrl =
-    "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list";
+  const productsUrl = "https://fakestoreapi.com/products";
   const [products, setProducts] = useState([]);
   const [mostrar, setMostrar] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const categoryList = [
+    {
+      id: 1,
+      category: "men's clothing",
+    },
+    {
+      id: 2,
+      category: "jewelery",
+    },
+    {
+      id: 3,
+      category: "electronics",
+    },
+    {
+      id: 4,
+      category: "women's clothing",
+    },
+  ];
   async function fetchingProducts() {
     try {
+      setIsLoading(true);
       const result = await UseFetch(productsUrl, Options);
       setProducts(result);
+      setIsLoading(false);
     } catch (e) {
       console.log(e);
+      setIsLoading(false);
     }
   }
-  console.log(products);
   useEffect(() => {
     fetchingProducts();
   }, []);
@@ -84,9 +105,52 @@ const Products = () => {
       </div>
 
       <div className="products__container">
-        <div className="products__left__container">left</div>
+        <div className="products__left__container">
+          <div className="products__filter__container">
+            {/* TO DO FIX FILTER*/}
+            <div className="products__filter__title__container">
+              <h2 className="filters__title">Filters</h2>
+              <div className="divider"></div>
+            </div>
+            <div className="products__filter__categories">
+              <h3 className="filter__category__title">Filter by category</h3>
+              <ul className="category__filter__list">
+                <div className="category__filter__container">
+                  <input type="checkbox" value="All" checked />
+                  <label htmlFor="">All</label>
+                </div>
+
+                {categoryList.map((item) => (
+                  <>
+                    <div className="category__filter__container">
+                      <input type="checkbox" value={item.category} />
+                      <label htmlFor="">{item.category}</label>
+                    </div>
+                  </>
+                ))}
+              </ul>
+              <h3>Filter by price</h3>
+              <input type="range" />
+            </div>
+          </div>
+        </div>
         <div className="products__right__container">
-          <div className="products__wrapper"></div>
+          <div className="products__title__container">
+            <h2>All our products</h2>
+          </div>
+          <div className="products__wrapper">
+            <ul className="products__list">
+              {isLoading ? (
+                <p>Loading products...</p>
+              ) : (
+                <>
+                  {products.map((item) => (
+                    <ProductItem key={item.id} item={item} />
+                  ))}
+                </>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

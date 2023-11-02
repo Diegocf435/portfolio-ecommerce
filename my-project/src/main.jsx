@@ -3,11 +3,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-
+import CartContext from "./Context/CartContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <CartContext>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </CartContext>
   </React.StrictMode>
 );

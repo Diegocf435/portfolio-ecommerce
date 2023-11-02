@@ -11,8 +11,14 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
+import { useContext } from "react";
+import { cartContext } from "../../Context/CartContext";
+import Cart from "../Cart/Cart";
 const Navbar = () => {
+  const { totalProductsInCart, isCartOpen, toggleCart } =
+    useContext(cartContext);
   const [isOpen, setIsOpen] = useState(false);
+  const productsInCart = totalProductsInCart();
   const categories = [
     {
       id: 0,
@@ -68,7 +74,7 @@ const Navbar = () => {
     },
   ];
   const handleNavbarIsOpen = () => {
-    setIsOpen(!isOpen);
+    setIsOpen();
   };
   const NavbarTop = () => {
     return (
@@ -102,6 +108,9 @@ const Navbar = () => {
       </div>
     );
   };
+  const handleOpenCart = () => {
+    toggleCart();
+  };
   const NavbarCenter = () => {
     return (
       <div className="navbar__center">
@@ -122,7 +131,13 @@ const Navbar = () => {
               <FaUser className="user-icon" />
             </div>
             <div className="navbar__center__right__item__right">
-              <FaShoppingCart className="cart-icon" />
+              <FaShoppingCart
+                className="cart-icon"
+                onClick={() => handleOpenCart()}
+              />
+              {productsInCart === 0 ? null : (
+                <div className="cart__quantity">{productsInCart}</div>
+              )}
             </div>
           </div>
         </div>
@@ -181,9 +196,9 @@ const Navbar = () => {
       </div>
     );
   };
-  console.log(isOpen);
   return (
     <div className="navbar">
+      {isCartOpen && <Cart />}
       <NavbarTop />
       <NavbarCenter />
       <NavbarBottom />
