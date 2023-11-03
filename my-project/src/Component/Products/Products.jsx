@@ -38,6 +38,9 @@ const Products = () => {
   ];
   const productsUrl = "https://fakestoreapi.com/products";
   const [products, setProducts] = useState([]);
+  const [filters, setFilters] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filterPrice, setFilterPrice] = useState(0);
   const [mostrar, setMostrar] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const categoryList = [
@@ -58,11 +61,22 @@ const Products = () => {
       category: "women's clothing",
     },
   ];
+  useEffect(() => {
+    filteringProducts();
+  }, [filters]);
+  const filteringProducts = () => {
+    const filteredProducts =
+      filters.length === 0
+        ? products
+        : products.filter((item) => filters.includes(item.category));
+    setFilteredProducts(filteredProducts);
+  };
   async function fetchingProducts() {
     try {
       setIsLoading(true);
       const result = await UseFetch(productsUrl, Options);
       setProducts(result);
+      setFilteredProducts(result);
       setIsLoading(false);
     } catch (e) {
       console.log(e);
@@ -80,7 +94,23 @@ const Products = () => {
 
     return () => clearTimeout(timer);
   }, []);
+  const handleFilters = (e) => {
+    const { checked, value } = e.target;
+    if (checked) {
+      setFilters([...filters, value]);
+    } else {
+      setFilters((prev) => prev.filter((item) => item !== value));
+    }
+  };
 
+  const handleFilterPrice = (e) => {
+    const { value } = e.target;
+    setFilterPrice(value);
+    const filteredPriceProducts = products.filter(
+      (item) => item.price > filterPrice
+    );
+    setFilteredProducts(filteredPriceProducts);
+  };
   return (
     <div className={`products ${mostrar ? "visible" : ""}`}>
       <div className="products__offers__carousel">
@@ -122,7 +152,11 @@ const Products = () => {
 
                 {categoryList.map((item) => (
                   <>
-                    <div className="category__filter__container">
+                    <div
+                      className="category__filter__container"
+                      key={item.id}
+                      onClick={(e) => handleFilters(e)}
+                    >
                       <input type="checkbox" value={item.category} />
                       <label htmlFor="">{item.category}</label>
                     </div>
@@ -130,7 +164,13 @@ const Products = () => {
                 ))}
               </ul>
               <h3>Filter by price</h3>
-              <input type="range" />
+              <input
+                type="range"
+                min="0"
+                max="600"
+                value={filterPrice}
+                onChange={(e) => handleFilterPrice(e)}
+              />
             </div>
           </div>
         </div>
@@ -144,7 +184,7 @@ const Products = () => {
                 <p>Loading products...</p>
               ) : (
                 <>
-                  {products.map((item) => (
+                  {filteredProducts.map((item) => (
                     <ProductItem key={item.id} item={item} />
                   ))}
                 </>

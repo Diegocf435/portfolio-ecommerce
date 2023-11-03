@@ -1,10 +1,11 @@
 import "./Cart.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { cartContext } from "../../Context/CartContext";
 import { RxCross2 } from "react-icons/rx";
 import { SiShopee } from "react-icons/si";
 import { AiOutlineMinus } from "react-icons/ai";
 import { BsPlusLg } from "react-icons/bs";
+import PaymentMethodModal from "../PaymentMethodModal/PaymentMethodModal";
 const Cart = () => {
   const {
     toggleCart,
@@ -13,6 +14,8 @@ const Cart = () => {
     totalInCart,
     substractFromCart,
     addQuantityToCart,
+    togglePaymentModal,
+    isPaymentModalOpen,
   } = useContext(cartContext);
   const handleToggleCart = () => {
     toggleCart();
@@ -20,8 +23,9 @@ const Cart = () => {
   const handleDeleteItem = (item) => {
     removeFromCart(item);
   };
-
-  console.log(cart);
+  const handleOpenPaymentModal = () => {
+    togglePaymentModal();
+  };
   return (
     <div className="cart">
       <RxCross2
@@ -99,9 +103,15 @@ const Cart = () => {
           Total: <span> ${totalInCart}</span>
         </div>
         <div>
-          <button>Pagar</button>
+          <button
+            disabled={totalInCart === 0 ? true : false}
+            onClick={(e) => handleOpenPaymentModal(e)}
+          >
+            Pagar
+          </button>
         </div>
       </div>
+      {isPaymentModalOpen && <PaymentMethodModal />}
     </div>
   );
 };

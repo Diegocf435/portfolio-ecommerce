@@ -1,0 +1,44 @@
+.paymentMethodModal {
+  z-index: 9999999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: var(--sombra-fuerte);
+  padding: 2rem;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+.paymentMethod__close__icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.paymentMethod__title {
+  font-weight: 400;
+  text-align: center;
+}
+.buttons__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.stripe__button {
+  width: 50%;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #635bff;
+  background-color: #fff;
+  color: #1f17a8;
+  border-radius: 5px;
+  box-shadow: var(--sombra-fuerte);
+  cursor: pointer;
+}

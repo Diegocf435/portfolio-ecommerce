@@ -7,6 +7,7 @@ const CartContext = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [totalInCart, setTotalInCart] = useState(0);
   const [productAdded, setProductAdded] = useState(false);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   useEffect(() => {
     setTotalInCart(
       cart.reduce((acc, item) => {
@@ -63,6 +64,9 @@ const CartContext = ({ children }) => {
   function toggleCart() {
     setIsCartOpen(!isCartOpen);
   }
+  function togglePaymentModal() {
+    setIsPaymentModalOpen(!isPaymentModalOpen);
+  }
   return (
     <cartContext.Provider
       value={{
@@ -76,6 +80,8 @@ const CartContext = ({ children }) => {
         setTotalInCart,
         substractFromCart,
         addQuantityToCart,
+        isPaymentModalOpen,
+        togglePaymentModal,
       }}
     >
       {children}

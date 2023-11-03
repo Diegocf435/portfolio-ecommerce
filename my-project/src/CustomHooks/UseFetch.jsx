@@ -24,3 +24,12 @@ export const Options = {
     "X-RapidAPI-Host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
   },
 };
+export const PostOptions = (data) => {
+  return {
+    method: "POST", // or 'PUT'
+    body: JSON.stringify(data), // data can be `string` or {object}!
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+};
